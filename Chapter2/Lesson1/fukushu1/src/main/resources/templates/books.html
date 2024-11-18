@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>本の登録</title>
+</head>
+<body>
+    <h1>本の登録</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>著者名</th>
+                <th>価格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">ID</td>
+                <td th:text="${book.bookTitle}">タイトル</td>
+                <td th:text="${book.author}">著者名</td>
+                <td th:text="${book.price}">価格</td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/books/add}">新しいデータを追加</a>
+</body>
+</html>

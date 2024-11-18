@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>店舗情報登録</title>
+</head>
+<body>
+    <h1>店舗情報登録</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>店舗名</th>
+                <th>住所</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="shopA : ${shops1}">
+                <td th:text="${shopA.id}">ID</td>
+                <td th:text="${shopA.name}">店舗名</td>
+                <td th:text="${shopA.address}">住所</td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/shops/add}">新しいユーザーを追加</a>
+</body>
+</html>

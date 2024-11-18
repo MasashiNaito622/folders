@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザー追加</title>
+</head>
+<body>
+    <h1>ユーザー追加</h1>
+    <form th:action="@{/users/add}" th:object="${user}" th:method="post">
+        <p>ユーザー名: <input type="text" th:field="*{username}"></p>
+        <p>名前: <input type="text" th:field="*{name}"></p>
+        <p><input type="submit" value="追加"></p>
+    </form>
+    <a th:href="@{/users}">ユーザーリストに戻る</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>店名一覧</title>
+</head>
+<body>
+    <h1>店名一覧</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>店名</th>
+                <th>住所</th>
+                <th>店舗説明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="shopA : ${shops1}">
+                <td th:text="${shopA.id}">ID</td>
+                <td th:text="${shopA.name}">店名</td>
+                <td th:text="${shopA.address}">商品コード</td>
+                <!-- 日付入力をreleaseDateで行う -->
+                <!-- <td th:text="${productA.releaseDate}">出版年月日</td> -->
+                <td th:text="${shopA.details}">店舗説明 </td>
+                <td>
+                            <!-- @の後ろはURLです -->
+                    <a th:href="@{/shops/edit/{id}(id=${shopA.id})}">編集</a>
+                    <a th:href="@{/shops/delete/{id}(id=${shopA.id})}">削除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/shops/add}">新しい店舗情報を追加</a><br>
+    <a th:href="@{/shops/search}">検索</a>
+</body>
+</html>

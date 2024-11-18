@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- th:replaceからでパーツ化されている -->
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" 
+    th:replace="~{base :: layout(~{::title},~{::body/content()})}">
+    <!-- 　　　　　　↑はtemplatesフォルダの中のbase.htmlを示している -->
+    <!-- これがさらにlayoutフォルダに入っていた場合は~{layout/base :: -->
+<head>
+    <meta charset="UTF-8">
+    <!-- <link th:href="@{/style.css}" rel="stylesheet"> -->
+    <title>企業一覧</title>
+</head>
+<body>
+    <h1>企業一覧</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>企業名</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="companyA : ${companys1}">
+                <td th:text="${companyA.id}">ID</td>
+                <td th:text="${companyA.companyName}">タイトル</td>
+                <td>
+                    <a th:href="@{/companys/edit/{id}(id=${companyA.id})}">編集</a>
+                    <a th:href="@{/companys/delete/{id}(id=${companyA.id})}">削除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/companys/add}">新しい会社を追加</a><br>
+    <a th:href="@{/companys/search}">search</a>
+</body>
+</html>

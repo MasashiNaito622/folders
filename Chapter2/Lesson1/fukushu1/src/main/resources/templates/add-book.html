@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>本の追加</title>
+</head>
+<body>
+    <h1>本の追加</h1>
+    <form th:action="@{/books/add}" th:object="${book}" th:method="post">
+        <p>タイトル: <input type="text" th:field="*{bookTitle}"></p>
+        <p>著者名: <input type="text" th:field="*{author}"></p>
+        <p>価格: <input type="text" th:field="*{price}"></p>
+        <p><input type="submit" value="追加"></p>
+    </form>
+    <a th:href="@{/books}">本のリストに戻る</a>
+</body>
+</html>
